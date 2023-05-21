@@ -11,6 +11,7 @@
 */
 
 using DotNetNuke.Entities.Users;
+using DotNetNuke.Framework;
 using DotNetNuke.Framework.JavaScriptLibraries;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
@@ -48,6 +49,35 @@ namespace GigaChads.Dnn.Dnn.GigaChads.HelloWorld.Controllers
 
             return View(item);
         }
+
+        private static void InitPopup()
+        {
+            DotNetNuke.Framework.JavaScriptLibraries.JavaScript.RequestRegistration(CommonJs.DnnPlugins);
+            DotNetNuke.Framework.JavaScriptLibraries.JavaScript.RequestRegistration(CommonJs.jQuery);
+            ServicesFramework.Instance.RequestAjaxScriptSupport();
+        }
+
+        [HttpGet]
+        public ActionResult Create(DateTime? departureAt)
+        {
+            InitPopup();
+
+            var model = new CreateBooking();
+            
+
+            //ViewBag.Plans = BookingManager.FindFlightPlans(
+            //    User.IsAdmin
+            //    );
+            ViewBag.AnimalSize = new SelectList(new[]
+            {
+                new SelectListItem() { Text = "-- select --", Value = null, Selected = true },
+                new SelectListItem() { Text = "Kistetstű", Value = "kicsi", },
+                new SelectListItem() { Text = "Közepes testű", Value = "kozepes" },
+                new SelectListItem() { Text = "Nagytestű", Value = "nagy" },
+            }, nameof(SelectListItem.Value), nameof(SelectListItem.Text));
+
+            return PartialView("Create", model);
+        }  
 
         [HttpPost]
         [DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
