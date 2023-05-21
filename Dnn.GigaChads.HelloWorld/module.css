@@ -1,0 +1,9 @@
+/*place images side by side*/
+.box {
+    display: inline-flex;
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
