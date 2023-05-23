@@ -60,6 +60,19 @@
                     <helpUrl />
                     <viewOrder>0</viewOrder>
                   </moduleControl>
+
+					<moduleControl>
+						<controlKey>Create</controlKey>
+						<controlSrc>GigaChads.Dnn.Dnn.GigaChads.HelloWorld.Controllers/Item/Create.mvc</controlSrc>
+						<supportsPartialRendering>True</supportsPartialRendering>
+						<controlTitle />
+						<controlType>View</controlType>
+						<iconFile />
+						<helpUrl />
+						<viewOrder>0</viewOrder>
+						<supportsPopUps>True</supportsPopUps>
+					</moduleControl>
+					
                   <moduleControl>
                     <controlKey>Edit</controlKey>
                     <controlSrc>GigaChads.Dnn.Dnn.GigaChads.HelloWorld.Controllers/Item/Edit.mvc</controlSrc>
