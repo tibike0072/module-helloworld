@@ -58,7 +58,7 @@ namespace GigaChads.Dnn.Dnn.GigaChads.HelloWorld.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(DateTime? departureAt)
+        public ActionResult Create()
         {
             InitPopup();
 
